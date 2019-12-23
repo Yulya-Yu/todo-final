@@ -6,7 +6,7 @@
                     <div v-for="(todo, index) in todosFiltered" :key="todo.id" class="todo-item">
 
                          <div class="todo-item-left">
-                             <p-check class="p-default p-round p-fill" color="danger"></p-check>
+                             <p-check class="p-default p-round p-fill urgent" color="danger" v-model="todo.urgent">срочно</p-check>
                               <p-check class="p-default p-round p-fill" color="success" v-model="todo.completed"></p-check>
                               <div v-if="!todo.editing" @dblclick="editTodo(todo)" class="todo-item-label" :class="{ completed : todo.completed }">{{ todo.title }}</div>
                               <input v-else class="todo-item-edit" type="text" v-model="todo.title" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)" v-focus>
@@ -109,12 +109,13 @@
     },
     addTodo() {
       if (this.newTodo.trim().length == 0) {
-        return
+        return alert('Поле не должно быть пустым')
       }
       this.todos.push({
         id: this.idForTodo,
         title: this.newTodo,
         completed: false,
+        urgent: false,
         editing: false,
       })
       this.newTodo = ''
@@ -157,8 +158,7 @@
 
         .page {
             width: 100%;
-            padding: 5rem;
-            box-shadow: 3rem 0 5rem 3rem #c1f5ff;
+            padding: 5rem;       
         }
 
         .content, .title {
@@ -188,9 +188,9 @@
     align-items: center;
     width: 300px;
     position: fixed;
-    height: 124px;
+    height: 140px;
     z-index: 10;
-    background: #03a9f4;
+    background: #fff;
     border-radius: 10px;
     top: 50%;
     left: 50%;
@@ -211,28 +211,27 @@ width: 80%;
 font-size: 16px;
 line-height: 20px;
 text-align: center;
-color: #fff;
+color: #03a9f4;
 margin-top: 30px;
+font-weight: 700;
 }
 .confirm-btns button {
 border: none;
 font-size: 16px;
 line-height: 20px;
 text-align: center;
-color: #353541;
+color: #fff;
 }
 .delete-btn-modal {
-width: 50px;
-height: 30px;
+width: 60px;
+height: 40px;
 background: #FF7373;
 margin-right: 20px;
-color: #fff;
-
 }
 .cancel-btn {
-width: 50px;
-height: 30px;
-background: #fff;
+width: 60px;
+height: 40px;
+background: #03a9f4;
 }
  button {
   border: 1px solid #03a9f4;
@@ -285,6 +284,7 @@ color: grey;
 .remaining {
 margin: 20px 0;
 }
+
 
 .sort-btns {
 width: 80%;

@@ -51,6 +51,7 @@ export default {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
+
 }
  html, body {
         height: 100%;
@@ -66,4 +67,7 @@ export default {
         flex-direction: row;
         height: 90vh;
     }
+router-link a{
+  text-decoration: none;
+}
 </style>

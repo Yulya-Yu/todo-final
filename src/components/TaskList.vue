@@ -28,7 +28,7 @@
         .tasklist {
             max-width: 20rem;
             width: 30rem;
-            background: #ecfcff;
+            
         }
 
         ul {
@@ -54,20 +54,23 @@
         }
 
         .active {
-            background-color: #80cee0;
+            background-color: #6fcffc;
+            color: #fff;
+            font-size: 16px;
         }
 
         .active:hover {
-            background-color: #5caec1;
+            background-color: #0f92cf;
         }
 
         .new-page {
-            background-color: #233b5d;
-            color: white;
+            background-color: #0098df;
+            color: #fff;
             position: absolute;
             bottom: 0;
             width: 100%;
             box-sizing: border-box;
+            font-weight: 700;
         }
 
         .new-page:hover {

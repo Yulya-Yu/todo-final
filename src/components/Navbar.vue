@@ -1,11 +1,11 @@
 <template>
-  <nav>
+  <nav id="nav-all">
       <div class="nav-wrapper">
         <div class="container">
          <p class="logo"> <router-link to="/" >Todo App</router-link></p>
           <ul class="nav-links">
             <li v-if="isLoggedIn"><span class="email">{{currentUser}}</span></li>
-            <li v-if="isLoggedIn"><router-link to="/MainComponent">Dashboard</router-link></li>
+            <li v-if="isLoggedIn" class="dashboard"><router-link to="/MainComponent">Dashboard</router-link></li>
             <li v-if="!isLoggedIn"><router-link to="/login">Login</router-link></li>
             <li v-if="!isLoggedIn"><router-link to="/register">Register</router-link></li>
             <li v-if="isLoggedIn"><button v-on:click="logout" class="btn-logout">Logout</button></li>
@@ -44,20 +44,25 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.nav-all {
+    background-color: #fff;
+}
 
 .nav-wrapper {
-  max-width: 850px;
+  max-width: 800px;
   margin: 0 auto;
   height: 10vh;
   display: flex;
   align-items: center;
+
 }
 .container {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  width: 100%;
 }
 
 .nav-links {
@@ -73,8 +78,8 @@ export default {
 }
 
 .btn-logout {
-  border: 1px solid #ff4081;
-  color:#ff4081;
+  border: 1px solid #03a9f4;
+  color: #03a9f4;
   border-radius: 25px;
   padding: 10px 15px;
   background: transparent;
@@ -82,7 +87,22 @@ export default {
 }
 
 .email {
-  color: #b0bec5;
+  color: #37474f;
 }
+
+.logo > a {
+  color: #03a9f4;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.dashboard > a {
+  color: #03a9f4;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 
 </style>
