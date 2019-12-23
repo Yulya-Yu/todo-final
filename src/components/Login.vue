@@ -2,17 +2,17 @@
   <div>
     <div class="container">
     <div class="row">
-      <div class="col s12 m8 offset-m2">
-        <div class="login card-panel deep-purple darken-2 white-text center">
+      <div>
+        <div class="login center">
           <h3>Login</h3>
           <form action="index.html">
             <div class="input-field">
-              <i class="material-icons prefix">email</i>
+              <i class="far fa-envelope"></i>
               <input type="email" id="email" v-model="email" placeholder="Email Address">
               <label class="white-text" for="email"></label>
             </div>
             <div class="input-field">
-              <i class="material-icons prefix">lock</i>
+              <i class="fas fa-unlock-alt"></i>
               <input type="password" id="password" v-model="password" placeholder="Password">
               <label class="white-text" for="password"></label>
             </div>
@@ -65,8 +65,8 @@ export default {
   text-align: center;
 }
 button {
-    border: 1px solid #ff4081;
-  color:#ff4081;
+    border: 1px solid #03a9f4;
+  color:#03a9f4;
   border-radius: 25px;
   padding: 10px 25px;
   background: transparent;
@@ -77,6 +77,11 @@ button {
 h3 {
   font-size: 20px;
   color: #62757f;
+}
+.fa-envelope, .fa-unlock-alt {
+font-size: 30px;
+margin-right: 20px;
+color: #03a9f4;
 }
 
 #email, #password {
@@ -96,9 +101,5 @@ align-items: center;
 justify-content: center;
 margin-top: 20px;
 }
-.material-icons {
-  color:#ff4081;
-  margin-right: 15px;
-  font-size: 24px;
-}
+
 </style>

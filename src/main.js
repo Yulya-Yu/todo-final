@@ -23,16 +23,16 @@ var firebaseConfig = {
 };
 
 
-firebase.initializeApp(firebaseConfig).database().ref();
-//const firebase = require("firebase");
-// require("firebase/firestore");
-// var db = firebase.firestore();
+const firebaseApp = firebase.initializeApp(firebaseConfig)
+const db = firebaseApp.firestore()
+
+
+Vue.$db = db
+
 
 new Vue({
     router,
     render: h => h(App)
 }).$mount('#app')
 
-//export default firebaseApp.firestore()
-//export const db = firebase.firestore()
-//export { firebase }
+export default firebaseApp.firestore()

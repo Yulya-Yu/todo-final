@@ -8,7 +8,7 @@
             <li v-if="isLoggedIn" class="dashboard"><router-link to="/MainComponent">Dashboard</router-link></li>
             <li v-if="!isLoggedIn"><router-link to="/login">Login</router-link></li>
             <li v-if="!isLoggedIn"><router-link to="/register">Register</router-link></li>
-            <li v-if="isLoggedIn"><button v-on:click="logout" class="btn-logout">Logout</button></li>
+            <li v-if="isLoggedIn"><button v-on:click="logout" class="btn-logout">выйти</button></li>
           </ul>
         </div>
       </div>

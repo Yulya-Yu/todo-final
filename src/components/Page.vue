@@ -4,7 +4,7 @@
                 <input type="text" v-model="page.title" class="title" name="title" placeholder="Название списка" />
                 <input type="text" class="todo-input" placeholder="Что нужно сделать" v-model="newTodo" @keyup.enter="addTodo">
                     <div v-for="(todo, index) in todosFiltered" :key="todo.id" class="todo-item">
-
+                           
                          <div class="todo-item-left">
                              <p-check class="p-default p-round p-fill urgent" color="danger" v-model="todo.urgent">срочно</p-check>
                               <p-check class="p-default p-round p-fill" color="success" v-model="todo.completed"></p-check>
@@ -12,7 +12,7 @@
                               <input v-else class="todo-item-edit" type="text" v-model="todo.title" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)" v-focus>
                          
                          <div class="remove-item" >
-                          <p>{{ moment(todo).format('lll') }}</p>
+                         <p>{{ moment(todo).format('lll') }}</p>
                          <i class="far fa-trash-alt" @click="showModal(todo.id)"></i>
                          </div>
                          </div>
@@ -53,6 +53,7 @@
     </template>
 
     <script>
+    //import db from '../main'
     var moment = require('moment');
 
       export default {
@@ -72,6 +73,20 @@
       ]
     }
   },
+//   created() {
+//    db.collection('todos').orderBy('createdAt').get().then(querySnapshot => {
+//      querySnapshot.forEach(doc => {
+//        const data = {
+//          'id': doc.id,
+//          'title': doc.data().title,
+//          'completed': doc.data().completed,
+//          'newTodo': doc.data().task,
+//          'createdAt': doc.data().createdAt
+//        }
+//        this.todos.push(data)
+//      })
+//    })
+// },
     computed: {
     remaining() {
       return this.todos.filter(todo => !todo.completed).length

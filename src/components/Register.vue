@@ -7,12 +7,12 @@
           <h3>Register</h3>
           <form action="index.html">
             <div class="input-field">
-              <i class="material-icons prefix">email</i>
+              <i class="far fa-envelope"></i>
               <input type="email" id="email" v-model="email" placeholder="Email Address">
               <label for="email"></label>
             </div>
             <div class="input-field">
-              <i class="material-icons prefix">lock</i>
+              <i class="fas fa-unlock-alt"></i>
               <input type="password" id="password" v-model="password" placeholder="Password">
               <label for="password"></label>
             </div>
@@ -97,9 +97,9 @@ align-items: center;
 justify-content: center;
 margin-top: 20px;
 }
-.material-icons {
-  color:#7200ca;
-  margin-right: 15px;
-  font-size: 24px;
+.fa-envelope, .fa-unlock-alt {
+font-size: 30px;
+margin-right: 20px;
+color: #7200ca;
 }
 </style>
